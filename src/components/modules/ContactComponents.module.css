@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 96px;
+}
+.linkIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.contactContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 64px;
+}
+.container h2 {
+  text-align: center;
+}
+.contactWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  background-color: var(--purple-smooth);
+  border-radius: 8px;
+}
+.contactWrapper p:nth-child(1) {
+  font-size: 28px;
+}
+.contactWrapper p:nth-child(2) {
+  font-size: 21px;
+}
+@media screen and (max-width: 1280px) {
+  .contactContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 768px) {
+  .contactContainer {
+    grid-template-columns: 1fr;
+  }
+}

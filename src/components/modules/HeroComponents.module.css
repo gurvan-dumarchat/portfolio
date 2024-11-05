@@ -1,0 +1,42 @@
+.intro {
+  font-size: 28px;
+}
+.subtitle {
+  font-size: 21px;
+}
+.name {
+  color: var(--red);
+}
+.contactContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 64px;
+  padding: 32px 64px;
+}
+.contactInfo {
+  display: flex;
+  gap: 16px;
+}
+
+.contactInfo svg {
+  width: 48px;
+  height: 48px;
+}
+.titleContainer {
+  width: 100%;
+  padding: 64px;
+}
+@media screen and (max-width: 1024px) {
+  .contactContainer {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: baseline;
+    gap: 16px;
+    padding: 32px 0;
+  }
+  .titleContainer {
+    padding: 32px 0;
+  }
+}

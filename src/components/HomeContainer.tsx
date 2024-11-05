@@ -2,9 +2,14 @@ import Link from "next/link";
 import styles from "./modules/HomeContainer.module.css";
 type HomeContainerProps = {
   children: React.ReactNode;
+  id?: string;
 };
-const HomeContainer = ({ children }: HomeContainerProps) => {
-  return <section className={`${styles.container}`}>{children}</section>;
+const HomeContainer = ({ children, id }: HomeContainerProps) => {
+  return (
+    <section className={`${styles.container}`} id={id}>
+      {children}
+    </section>
+  );
 };
 
 import React from "react";
@@ -13,7 +18,7 @@ export const Header = () => {
   return (
     <div>
       <nav>
-        <ul>
+        <ul className={`${styles.header}`}>
           <li>
             <Link href="#about">À propos</Link>
           </li>

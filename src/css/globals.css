@@ -1,19 +1,24 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #130f40;
+  --foreground: #ededed;
+  --purple-smooth: #1f1b4a;
+  --purple-smoothest: #2b2753;
+  --purple-smoothest-blur: #2b275304;
+  --red: #eb4d4b;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #130f40;
-    --foreground: #ededed;
-  }
+h1 {
+  font-size: 67px;
+}
+h2 {
+  font-size: 50px;
 }
 
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -29,12 +34,16 @@ body {
   padding: 0;
   margin: 0;
   font-family: Montserrat;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+  transition: color 200ms ease-out;
+}
+a:hover {
+  color: var(--red);
 }
 
 @media (prefers-color-scheme: dark) {

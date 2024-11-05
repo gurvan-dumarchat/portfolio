@@ -5,6 +5,7 @@ import nextjs from "@/public/icons/next.svg";
 import prisma from "@/public/icons/prisma.svg";
 import python from "@/public/icons/python.svg";
 import react from "@/public/icons/react.svg";
+import algo from "@/public/img/algo.png";
 import graph from "@/public/img/graph.png";
 import graphS2 from "@/public/img/graphS2.png";
 import lts from "@/public/img/letrucensucre.png";
@@ -14,6 +15,7 @@ import stockfast from "@/public/img/stockfast.png";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 import { TechnoIcon } from "./TechnoComponents";
+import styles from "./modules/ProjectsComponents.module.css";
 
 const projects: Project[] = [
   {
@@ -80,7 +82,7 @@ const projects: Project[] = [
   },
   {
     title: "Performance algorithmique",
-    preview: graphS2,
+    preview: algo,
     description:
       "Implémentation d'une structure de données et mesures de ses performances",
     tags: [
@@ -110,15 +112,16 @@ const projects: Project[] = [
 
 export const ProjectsSection = () => {
   return (
-    <div>
+    <div className={`${styles.container}`}>
       <h2>Projets</h2>
-      <div>
+      <div className={`${styles.projectMapper}`}>
         {projects.map((project, index) => (
           <ProjectCard
             title={project.title}
             description={project.description}
             preview={project.preview}
             tags={project.tags}
+            key={index}
           ></ProjectCard>
         ))}
       </div>
@@ -134,20 +137,28 @@ type Project = {
 
 export const ProjectCard = ({ title, preview, description, tags }: Project) => {
   return (
-    <div>
+    <div className={`${styles.projectCard}`}>
       <h3>{title}</h3>
-      {/* <Image src={preview} alt={`${title} preview`} /> */}
-      <p>{description}</p>
-      {tags.map((tag, index) => (
-        <TagIcon icon={tag.icon} title={tag.title} key={index}></TagIcon>
-      ))}
+      <div>
+        <Image
+          src={preview}
+          alt={`${title} preview`}
+          className={`${styles.previewImage}`}
+        />
+        <p>{description}</p>
+      </div>
+      <div className={`${styles.tagContainer}`}>
+        {tags.map((tag, index) => (
+          <TagIcon icon={tag.icon} title={tag.title} key={index}></TagIcon>
+        ))}
+      </div>
     </div>
   );
 };
 
 export const TagIcon = ({ icon, title }: TechnoIcon) => {
   return (
-    <div>
+    <div className={`${styles.tag}`}>
       <Image src={icon} alt={`${title} icon`} />
       <p>{title}</p>
     </div>

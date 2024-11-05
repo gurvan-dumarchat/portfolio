@@ -109,9 +109,9 @@ const icons: TechnoIcon[] = [
 ];
 export const TechnoSection = () => {
   return (
-    <div>
+    <div className={`${styles.container}`}>
       <h2>Développement FullStack</h2>
-      <div>
+      <div className={`${styles.iconMapper}`}>
         {icons.map((icon, index) => (
           <TechnoIcon
             key={index}
@@ -120,16 +120,20 @@ export const TechnoSection = () => {
           ></TechnoIcon>
         ))}
       </div>
-      <p>
-        Développement d'interfaces interactives en alliant performance et
-        utilisabilité en utilisant React et Vite
-      </p>
-      <p>
-        Création d'APIs REST pour gérer les requêtes d'une application en
-        assurant la communication avec une base de données avec Express et
-        Prisma
-      </p>
-      <p>Création de scripts de visualisation de données avec Python</p>
+      <div>
+        <ul className={`${styles.objectiveList}`}>
+          <li>
+            Développement d&apos;interfaces interactives en alliant performance
+            et utilisabilité en utilisant React et Vite
+          </li>
+          <li>
+            Création d&apos;APIs REST pour gérer les requêtes d&apos;une
+            application en assurant la communication avec une base de données
+            avec Express et Prisma
+          </li>
+          <li>Création de scripts de visualisation de données avec Python</li>
+        </ul>
+      </div>
     </div>
   );
 };
@@ -146,7 +150,7 @@ export const TechnoIcon = ({ icon, title }: TechnoIcon) => {
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
-      {hover ? <p>{title}</p> : ""}
+      <p className={`${hover ? styles.infoShown : ""}`}>{title}</p>
       <Image src={icon} alt={title + " icon"}></Image>
     </div>
   );

@@ -5,6 +5,7 @@ import gitlab from "@/public/icons/logos--gitlab.svg";
 import github from "@/public/icons/mdi--github.svg";
 import postman from "@/public/icons/skill-icons--postman.svg";
 import { TechnoIcon } from "./TechnoComponents";
+import styles from "./modules/TechnoComponents.module.css";
 const icons: TechnoIcon[] = [
   {
     icon: Docker,
@@ -33,9 +34,9 @@ const icons: TechnoIcon[] = [
 ];
 export const ToolsSection = () => {
   return (
-    <div>
-      <h2>Tools and softwares</h2>
-      <div>
+    <div className={`${styles.container}`}>
+      <h2>Outils et logiciels</h2>
+      <div className={`${styles.iconMapper}`}>
         {icons.map((icon, index) => (
           <TechnoIcon
             icon={icon.icon}
@@ -44,8 +45,14 @@ export const ToolsSection = () => {
           ></TechnoIcon>
         ))}
       </div>
-      <p>Gestion de version de projet avec Git</p>
-      <p>Maintenance applicative et installation de services avec Docker</p>
+      <div>
+        <ul className={`${styles.objectiveList}`}>
+          <li>Gestion de version de projet avec Git</li>
+          <li>
+            Maintenance applicative et installation de services avec Docker
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };
