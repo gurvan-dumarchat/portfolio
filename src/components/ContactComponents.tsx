@@ -30,7 +30,7 @@ export const ContactSection = () => {
         <div className={`${styles.contactWrapper}`}>
           <p>Consulter mon GitHub</p>
           <Link
-            href={"github.com/gurvan-dumarchat"}
+            href={"https://github.com/gurvan-dumarchat"}
             className={`${styles.linkIcon}`}
           >
             <Github></Github>
