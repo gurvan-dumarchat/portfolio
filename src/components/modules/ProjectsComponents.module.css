@@ -14,6 +14,7 @@
   justify-content: space-between;
   gap: 16px;
   max-width: 384px;
+  cursor: pointer;
 }
 .projectCard h3 {
   font-size: 28px;

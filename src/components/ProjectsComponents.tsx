@@ -1,3 +1,5 @@
+"use client";
+
 import clang from "@/public/icons/arcticons--clanguage.svg";
 import java from "@/public/icons/java.svg";
 import js from "@/public/icons/js.svg";
@@ -22,6 +24,7 @@ const projects: Project[] = [
     title: "StockFast",
     preview: stockfast,
     description: "Application de gestion logistique pour les TPE et PME",
+    link: "/pdf/stockfast.pdf",
     tags: [
       {
         icon: react,
@@ -41,6 +44,7 @@ const projects: Project[] = [
     title: "Le Truc en Sucre",
     preview: lts,
     description: "Site vitrine pour une boutique locale",
+    link: "https://letrucensucre.com",
     tags: [
       {
         icon: react,
@@ -61,6 +65,7 @@ const projects: Project[] = [
     preview: pixelwar,
     description:
       "Développement d'une application front-end pour une compétition universitaire dans le style de la Reddit pixel war",
+    link: "https://github.com/gurvan-dumarchat/iut-pixel-war",
     tags: [
       {
         icon: js,
@@ -73,6 +78,7 @@ const projects: Project[] = [
     preview: graph,
     description:
       "Implémentation de la structure de graphes avec les algorithmes associés",
+    link: "/pdf/graphe.pdf",
     tags: [
       {
         icon: java,
@@ -85,6 +91,7 @@ const projects: Project[] = [
     preview: algo,
     description:
       "Implémentation d'une structure de données et mesures de ses performances",
+    link: "/pdf/performanceAlgo.pdf",
     tags: [
       {
         icon: clang,
@@ -101,6 +108,7 @@ const projects: Project[] = [
     preview: graphS2,
     description:
       "Générateur de graphique à partir de n'importe quelle donnée implémentée de la base et sous 4 formes différentes",
+    link: "/pdf/GenerateurStats.pdf",
     tags: [
       {
         icon: python,
@@ -122,6 +130,7 @@ export const ProjectsSection = () => {
             preview={project.preview}
             tags={project.tags}
             key={index}
+            link={project.link}
           ></ProjectCard>
         ))}
       </div>
@@ -133,11 +142,22 @@ type Project = {
   preview: StaticImport;
   description: string;
   tags: TechnoIcon[];
+  link: string;
 };
 
-export const ProjectCard = ({ title, preview, description, tags }: Project) => {
+export const ProjectCard = ({
+  title,
+  preview,
+  description,
+  tags,
+  link,
+}: Project) => {
+  const handleLink = () => {
+    const url = link;
+    window.open(url, "_blank");
+  };
   return (
-    <div className={`${styles.projectCard}`}>
+    <div className={`${styles.projectCard}`} onClick={handleLink}>
       <h3>{title}</h3>
       <div>
         <Image
