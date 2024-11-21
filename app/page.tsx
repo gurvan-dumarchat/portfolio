@@ -1,5 +1,6 @@
 import { AboutSection } from "@/src/components/AboutComponents";
 import { ContactSection } from "@/src/components/ContactComponents";
+import Footer from "@/src/components/Footer";
 import {
   ContactContainer,
   ContactInformation,
@@ -71,6 +72,7 @@ export default function Home() {
           <ContactSection />
         </HomeContainer>
       </main>
+      <Footer></Footer>
     </>
   );
 }
